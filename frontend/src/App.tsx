@@ -1,23 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import useDrink from "./hooks/useDrink";
+import DrinkReel from "./components/DrinkReel/DrinkReel";
 
 function App() {
+
+const {drinks} = useDrink();
+
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+          <h2>All drinks</h2>
+          <DrinkReel drinks={drinks} filter={""} category={""}/>
+          <h2>All shots</h2>
+          <DrinkReel drinks={drinks} filter={"Shot"} category={""}/>
+          <h2>All cocktails</h2>
+          <DrinkReel drinks={drinks} filter={"Cocktail"} category={""}/>
+          <h2>All ordinary drinks</h2>
+          <DrinkReel drinks={drinks} filter={"Ordinary"} category={""}/>
+          <h2>All punches</h2>
+          <DrinkReel drinks={drinks} filter={"Punch"} category={""}/>
       </header>
     </div>
   );
